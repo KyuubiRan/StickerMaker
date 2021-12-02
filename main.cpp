@@ -57,10 +57,16 @@ int main(int argc, char *argv[]) {
         sprintf_s(fileName, "output_%d", i);
         if (path.contains('/')) {
             string pt = path.substr(path.find_last_of('/'));
-            outPath = pt.append(fileName).append(".png");
+            if (pt.starts_with("/"))
+                outPath.append(fileName).append(".png");
+            else
+                outPath = pt.append(fileName).append(".png");;
         } else if (path.contains('\\')) {
             string pt = path.substr(path.find_last_of('\\'));
-            outPath = pt.append(fileName).append(".png");
+            if (pt.starts_with("\\"))
+                outPath.append(fileName).append(".png");
+            else
+                outPath = pt.append(fileName).append(".png");
         } else {
             outPath.append(fileName).append(".png");
         }
