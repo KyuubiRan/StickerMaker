@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
             if (pt.starts_with("/"))
                 outPath.append(fileName).append(".png");
             else
-                outPath = pt.append("/").append(fileName).append(".png");;
+                outPath = pt.append("/").append(fileName).append(".png");
         } else if (path.contains('\\')) {
             string pt = path.substr(0, path.find_last_of('\\'));
             if (pt.starts_with("\\"))
