@@ -7,7 +7,7 @@
 
 using namespace std;
 
-bool IsAllowFileType(string_view path) {
+bool IsAllowedFileType(string_view path) {
     const static array<string, 3> list{".jpg", ".jpeg", ".png"};
     return any_of(list.cbegin(), list.cend(), [&](string_view str) {
         return path.ends_with(str);
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
 
     for (int i = 1; i < argc; ++i) {
         string path = string(argv[i]);
-        if (!IsAllowFileType(path)) {
+        if (!IsAllowedFileType(path)) {
             cout << "[WARN] The file with index " << i << " is not a valid image, skipped." << endl;
             continue;
         }
